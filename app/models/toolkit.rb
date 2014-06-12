@@ -1,0 +1,2 @@
+class Toolkit < ProcessApp
+end

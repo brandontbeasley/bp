@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proc_app_snap_id: 1
+  tookit_snap_id: 1
+  guid: MyString
+
+two:
+  proc_app_snap_id: 1
+  tookit_snap_id: 1
+  guid: MyString
