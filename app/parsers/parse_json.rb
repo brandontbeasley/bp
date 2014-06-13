@@ -13,6 +13,7 @@ class ParseJson
         temp_app.save
         parse_snapshots("#{temp_dir.path}/snapshots")
         parse_dependencies("#{temp_dir.path}/dependencies")
+        parse_toolkits("#{temp_dir.path}/toolkits")
       end
     end
   end
@@ -39,7 +40,7 @@ class ParseJson
         temp_snap=Snapshot.find_or_create_by_id(snap_hash['id'])
         temp_snap.name=snap_hash['name']
         temp_snap.guid=snap_hash['guid']
-        temp_snap.process_app_id=['process_app_id']
+        temp_snap.process_app_id=snap_hash['process_app_id']
         temp_snap.save
       end
     end
@@ -48,9 +49,9 @@ class ParseJson
   #Parses the dependency directory
   #@param [String] dependency_path the path to the dependency directory
   def parse_dependencies(dependency_path)
-    Dir.open(dependency_path).each do |dependency_file|
-      unless dependency_file.to_s.eql?('.') or dependency_file.to_s.eql?('..')
-        dependency_file=File.open("#{dependency_path}/#{dependency_file}")
+    Dir.open(dependency_path).each do |dependency_file_name|
+      unless dependency_file_name.to_s.eql?('.') or dependency_file_name.to_s.eql?('..')
+        dependency_file=File.open("#{dependency_path}/#{dependency_file_name}")
         dependency_array=ActiveSupport::JSON.decode(dependency_file.read)
         dependency_file.close
         dependency_array.each do |dependency_hash|
@@ -60,6 +61,24 @@ class ParseJson
           temp_dependency.toolkit_snap_id=dependency_hash['toolkit_snap_id']
           temp_dependency.save
         end
+      end
+    end
+  end
+
+  #Parses the toolkit directory
+  #@param [String] toolkit_path the path to the toolkit directory
+  def parse_toolkits(toolkit_path)
+    Dir.open(toolkit_path).each do |toolkit_file_name|
+      unless toolkit_file_name.to_s.eql?('.') or toolkit_file_name.to_s.eql?('..')
+        toolkit_file=File.open("#{toolkit_path}/#{toolkit_file_name}")
+        toolkit_json = ActiveSupport::JSON.decode(toolkit_file.read)
+        toolkit_file.close
+        toolkit= Toolkit.find_or_create_by_id(toolkit_json['id'])
+        toolkit.description=toolkit_json['description']
+        toolkit.guid=toolkit_json['guid']
+        toolkit.name=toolkit_json['name']
+        toolkit.short_name=toolkit_json['short_name']
+        toolkit.save
       end
     end
   end
