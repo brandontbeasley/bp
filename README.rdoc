@@ -12,7 +12,7 @@ up and running.  While we could tell you all the steps to do that, getting your
 environment running is the first step of this work.
 
 The "problem" was generated using Ruby 2 and Rails 3, so I would suggest you mimic this
-environment to aviod version incompatibilities.
+environment to avoid version incompatibilities.
 
 ==  Populating the database
 
@@ -57,7 +57,7 @@ contain any illegal dependencies, and if they do, what dependencies are in confl
 
 == Success Criteria
 
-- Level 1: Be able to articulate that a given Process App has illegal dependencies.
+- Level 1: Be able to articulate that a given Snapshot has illegal dependencies.
 - Level 2: Complete "Level 1" and be able to identify the relationships causing the error.
 - Level 3: Complete "Level 1" and "Level 2" as well as a "Dashboard" to present the results.
 
