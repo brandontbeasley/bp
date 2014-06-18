@@ -57,9 +57,9 @@ contain any illegal dependencies, and if they do, what dependencies are in confl
 
 == Success Criteria
 
-Level 1: Be able to articulate that a given Process App has illegal dependencies.
-Level 2: Complete "Level 1" and be able to identify the relationships causing the error.
-Level 3: Complete "Level 1" and "Level 2" as well as a "Dashboard" to present the results.
+- Level 1: Be able to articulate that a given Process App has illegal dependencies.
+- Level 2: Complete "Level 1" and be able to identify the relationships causing the error.
+- Level 3: Complete "Level 1" and "Level 2" as well as a "Dashboard" to present the results.
 
 
 *Good Luck!*
