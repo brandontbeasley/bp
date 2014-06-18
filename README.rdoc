@@ -11,7 +11,15 @@ active record, but it is using the SQLite database so it should be easy to get
 up and running.  While we could tell you all the steps to do that, getting your
 environment running is the first step of this work.
 
+The "problem" was generated using Ruby 2 and Rails 3, so I would suggest you mimic this
+environment to aviod version incompatibilities.
+
 ==  Populating the database
+
+The problem requires parsing of a set of database tables (sqlite) whose schema you should create
+using the folowing command:
+
+> rake db:migrate
 
 Once you have your schema created, you will need to bring up the rails console
 and issue the following command -
@@ -19,7 +27,10 @@ and issue the following command -
     ParseJson.new.parse_standard_payload
 
 This will read the data in the "seed data" folder and populate the base data into
-your database.
+your database schema.
+
+From this point, it is up to you whether you use the Rails conventions to access the database,
+or use raw Ruby script to access the ActiveRecord data.
 
 == Problem Statement
 
