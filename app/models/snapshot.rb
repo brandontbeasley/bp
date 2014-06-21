@@ -7,4 +7,22 @@ class Snapshot < ActiveRecord::Base
 
   attr_accessible :guid, :name, :process_app_id, :type
 
+  def dependencies
+    proc_app = []
+    if self.process_app.type == "Toolkit"
+      dependencies = Dependency.where(toolkit_snap_id: self.id)
+      dependencies.each do |dependency|
+        snapshot = Snapshot.find(dependency.proc_app_snap_id)
+        proc_app << snapshot.process_app
+      end
+    else
+      dependencies = Dependency.where(proc_app_snap_id: self.id)
+      dependencies.each do |dependency|
+        snapshot = Snapshot.find(dependency.toolkit_snap_id)
+        proc_app << snapshot.process_app
+      end
+    end
+    return proc_app
+  end
+
 end
