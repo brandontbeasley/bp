@@ -1,0 +1,14 @@
+<h1><%= @p_app.name %>'s Illegal Snapshot Dependencies</h1>
+<%  if @p_app.illegal.count == 0 %>
+  <p> No illegal dependencies </p>
+<%  end %>
+<% @p_app.illegal.each do |illegal| %>
+  <ul>
+    <li>Snapshot: <%= illegal[0] %></li>
+    <ul>
+      <%  illegal[1].each do |name| %>
+      <li>Illegal Dependency on Process App: <span style="color:red;"> <%= name %></span></li>
+      <%  end %>
+    </ul>
+  </ul>
+<%  end %>

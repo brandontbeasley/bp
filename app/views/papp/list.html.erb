@@ -1,0 +1,6 @@
+<h1>All Process App's</h1>
+<%  @p_apps.each do |p_app| %>
+  <ul>
+    <li><a href= "papp/<%= p_app.id %>"> <%= p_app.id %> <%= p_app.name %></a></li>
+  </ul>
+<%  end %>
