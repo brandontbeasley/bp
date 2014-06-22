@@ -3,7 +3,7 @@
 <%  @p_app.snapshots.each do |snap| %>
   <%= puts snap.name %>
   <ul>
-    <li><a href="papp/snap/<%= snap.id %>"><%= snap.id %> : <%= snap.name %></a></li>
+    <li><a href="/snap/<%= snap.id %>"><%= snap.id %> : <%= snap.name %></a></li>
   </ul>
 <%  end %>
 

@@ -5,7 +5,7 @@ Turing::Application.routes.draw do
   # Sample of regular route:
     get '/process_app' => 'papp#list'
     get 'papp/:id' => 'papp#show'
-    get '/snap/:id' => 'snap#show'
+    get 'snap/:id' => 'snap#show'
 
   # Keep in mind you can assign values other than :controller and :action
 
