@@ -3,8 +3,10 @@ Turing::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-    get '/' => 'papp#list'
+    get '/process_app' => 'papp#list'
     get 'papp/:id' => 'papp#show'
+    get '/snap/:id' => 'snap#show'
+
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

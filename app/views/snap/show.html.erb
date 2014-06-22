@@ -1,0 +1,9 @@
+<h1 style="display: inline;">Dependencies</h1>
+<p style="display: inline; color:red;">(red marks illegal dependencies)</p>
+<%  @dependencies.each do |dep| %>
+  <% if @illegals.include?(dep) %>
+    <p style="color:red;"><%= dep.process_app.name %></p>
+  <%  else %>
+    <p> <%= dep.process_app.name %> </p>
+  <%  end %>
+<%  end %>
